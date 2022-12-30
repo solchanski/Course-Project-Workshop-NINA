@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+{% block content %}
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="online bus tickets booking">
+		<meta name="keywords" content="Bus, Traveling, Bus tickets, Booking">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style/cart.css' %}">
+        <title>Workshop NINA</title>
+    </head>
+	<body>
+        <header class="header">
+            <a href="{% url 'index' %}"><img class="nina" src="{% static 'img/nina_header_white.svg' %}"></a>
+        </header>
+        <main>
+            <section class="cart_container">
+                <div class="cart_element_flower">
+                    <img src="./img/bouquet_1.png" width="80">
+                    <div class="cart_text">Bouquet</div>
+                    <div class="counter">
+                        <button class="counter_button">-</button>
+                        <pre class="amount"></pre>
+                        <button class="counter_button">+</button>
+                    </div>
+                    <div class="cart_text price">723 BYN</div>
+                    <button class="delete_link"><img src="./img/delete.svg" width="20" height="20"></button>
+                </div>
+            </section>
+            <section class="cart_container">
+                <div class="cart_element_flower">
+                    <img src="./img/flower_5.png" width="80">
+                    <div class="cart_text">Bouquet</div>
+                    <div class="counter">
+                        <button class="counter_button">-</button>
+                        <pre class="amount"></pre>
+                        <button class="counter_button">+</button>
+                    </div>
+                    <div class="cart_text price">723 BYN</div>
+                    <button class="delete_link"><img src="./img/delete.svg" width="20" height="20"></button>
+                </div>
+                <div class="cart_element_flower">
+                    <img src="./img/flower_8.png" width="80">
+                    <div class="cart_text">Bouquet</div>
+                    <div class="counter">
+                        <button class="counter_button">-</button>
+                        <pre class="amount">12</pre>
+                        <button class="counter_button">+</button>
+                    </div>
+                    <div class="cart_text price">723 BYN</div>
+                    <button class="delete_link"><img src="./img/delete.svg" width="20" height="20"></button>
+                </div>
+                <div class="cart_element_total">
+                    <div class="cart_text_total">BOUQUET PRICE:</div>
+                    <div class="cart_text_total price">723 BYN</div>
+                </div>
+            </section>
+            <div class="total_container">
+                <div class="cart_element">
+                    <div class="cart_text_white">TOTAL PRICE:</div>
+                    <div class="cart_text_white price">723 BYN</div>
+                </div>
+            </div>
+            <button type="submit" class="button_buy">Buy</button>
+        </main>
+        <script>
+            
+        </script>
+    </body>
+</html>
+{% endblock %}
