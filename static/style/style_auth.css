@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    padding-inline-start: 0;
+    margin: 0;
+    background-color: #b6b6b6;
+}
+
+html{
+    background-color: #b6b6b6;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+button, a{
+    cursor: pointer;
+}
+
+.img_background {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../img/img_background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.nina {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.login_h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #FFFFFF;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    font-size: 38px;
+    margin-top: 130px;
+    margin-bottom: 20px;
+}
+
+.login_form {
+    display: grid;
+    width: 430px;
+    margin-left:350px;
+}
+
+.login_form_input {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 50px;
+    border: 2px solid white;
+    padding: 20px 40px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    width: 350px;
+}
+
+.login_form_input:focus {
+    outline: 0;
+    border: 2px solid black;
+}
+
+.sign_up_h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #ffffff;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    font-size: 38px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sign_up_form {
+    display: grid;
+    width: 430px;
+    margin-left: 350px;
+}
+
+.sign_up_form_input {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 50px;
+    border: 2px solid white;
+    padding: 20px 40px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    width: 350px;
+}
+
+.sign_up_form_input:focus {
+    outline: 0;
+    border: 2px solid black;
+}
+
+.login_buttons {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: white;
+    text-decoration: none;
+    background: #B6B6B6;
+    border: 3px solid #FFFFFF;
+    border-radius: 80px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 20px 50px 20px 50px
+}
+
+.login_buttons:hover {
+    background-color: black;
+    border: 3px solid #000000;
+}
+
+.create_account_link {
+    font-family: 'Montserrat', sans-serif;
+    margin:0 auto;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.create_account_link:hover {
+    text-decoration: underline;
+}

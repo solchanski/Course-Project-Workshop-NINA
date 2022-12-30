@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+{% block content %}
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style/items.css' %}">
+        <title>Workshop NINA</title>
+    </head>
+	<body>
+        <header class="header">
+            <a href="{% url 'index' %}"><img class="nina" src="{% static 'img/nina_header.svg' %}"></a>
+            <div>
+                <a href="{% url 'cart' %}"><img class="cart" src="{% static 'img/cart.svg' %}"></a>
+                {% if user.is_superuser %}
+                    <a href="{% url 'admin:index' %}"><img class="profile" src="{% static 'img/profile.svg' %}"></a>
+                {% elif user.is_authenticated %}
+                    <a href="{% url 'profile' %}"><img class="profile" src="{% static 'img/profile.svg' %}"></a>
+                {% else %}
+                    <a href="{% url 'login' %}"><img class="profile" src="{% static 'img/profile.svg' %}"></a>
+                {% endif %}
+            </div>
+        </header>
+        <main>
+            <form method="get" class="items">
+            {% csrf_token %}
+            {% for bouquet in bouquets %}
+                <div class="item" style="background-image: url({{bouquet.image.url}})">
+                    <p class="price">{{bouquet.price}} BYN</p>
+                    <button class="button">Buy</button>
+                </div>
+            {% endfor %}
+            </form>
+        </main>
+    </body>
+</html>
+{% endblock %}

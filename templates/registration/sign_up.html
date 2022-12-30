@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+{% block content %}
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style/style_auth.css' %}">
+        <title>Workshop NINA</title>
+    </head>
+    <body>
+        <section class="img_background">
+            <a href="{% url 'index' %}"><img class="nina" src="{% static 'img/nina_header_white.svg' %}"></a>
+            <form id="create_account" class="sign_up_form" method="post">
+                <h1 class="sign_up_h1">SIGN UP</h1>
+                {% csrf_token %}
+                {% for field in form %}
+                <div>{{ field }}</div>
+                {% endfor %}
+<!--                <input class="sign_up_form_input" type="text" name="firstname" id="first_name" value="{{ form.data.first_name }}" placeholder="Firstname">-->
+<!--                <input class="sign_up_form_input" type="text" name="lastname" id="last_name" value="{{ form.data.last_name }}" placeholder="Lastname">-->
+<!--                <input class="sign_up_form_input" type="text" name="email" id="email" value="{{ form.data.email }}" placeholder="E-mail">-->
+<!--                <input class="sign_up_form_input" type="text" name="username" id="username" value="{{ form.data.username }}" placeholder="Username">-->
+<!--                <input class="sign_up_form_input" type="text" name="password" id="password" value="{{ form.data.password }}" placeholder="Password">-->
+                <button type="submit" class="login_buttons">Create an account</button>
+            </form>
+            {{ form.errors }}
+        </section>
+    </body>
+</html>
+{% endblock %}

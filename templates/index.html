@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+{% block content %}
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style/style.css' %}">
+        <title>Workshop NINA</title>
+    </head>
+	<body>
+        <section class="img_background">
+            {% if user.is_anonymous %}
+            <div><a href="{% url 'login' %}" class="login">Login</a></div>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <div><a href="{% url 'logout' %}" class="login">Logout</a></div>
+            {% endif %}
+            <h1 class="logo">WORKSHOP</h1>
+            <img class="nina" src="{% static 'img/nina.svg' %}">
+            <a href="{% url 'create_bouquet' %}" class="button_create_bouquet">Create bouquet</a>
+            <a href="{% url 'show_bouquets' %}"class="show_bouquets_link">Show bouquets</a>
+        </section>
+    </body>
+</html>
+{% endblock %}

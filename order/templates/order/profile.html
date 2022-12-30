@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+{% block content %}
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style/profile.css' %}">
+        <title>Workshop NINA</title>
+    </head>
+	<body>
+        <header class="header">
+            <div><a href="{% url 'index' %}"><img class="nina" src="{% static 'img/nina_header_white.svg' %}"></a></div>
+            <div class="header_right">
+                <div><a href="{% url 'cart' %}"><img src="{% static 'img/cart_white.svg' %}" width="30" height="30"></a></div>
+                <div><a class="logout" href="{% url 'logout' %}">Logout</a></div>
+            </div>
+        </header>
+        <p class="user_inf">{{ user.first_name }} {{ user.last_name }}</p>
+        {% if orders %}
+            {% for order in orders %}
+                <section class="cart_container">
+                    <div class="text_grey">ESTIMATED DELIVERY:</div>
+                    <div class="text_black">{{order.date}} at {{order.delivery_time}}</div>
+                    <div class="text_grey">ADDRESS:</div>
+                    <div class="text_black">{{order.address}}</div>
+                    <div class="text_grey">TO PAY:</div>
+                    <div class="text_black">{{order.total}}</div>
+                    <div><a href="{% url 'delete_order' order.pk %}" class="button_cancel" >Cancel</a></div>
+                </section>
+            {% endfor %}
+        {% else %}
+            <div class="empty_profile">NO ESTIMATED DELIVERIES</div>
+        {% endif %}
+
+    </body>
+</html>
+{% endblock %}

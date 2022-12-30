@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    padding-inline-start: 0;
+    margin: 0;
+    background: linear-gradient(180deg, #C4D334 0%, #B6B6B6 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+html{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+button, a{
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.nina {
+    width: 200px;
+}
+
+
+.button_buy {
+    margin: 0 auto;;
+    display: block;
+    background-color: inherit;
+    border: 1px solid #FFFFFF;
+    border-radius: 80px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    width: 150px;
+    height: 60px;
+    margin-bottom: 50px;
+    margin-top: -10px;
+}
+
+.button_buy:hover {
+    border: 1px solid #C4D334;
+    background-color: #C4D334;
+}
+
+.cart_container {
+    margin: 0 auto;;
+    display: block;    
+    width: 800px;
+    background: #FFFFFF;
+    border-radius: 40px;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right:25px;
+    margin-top: 20px;
+}
+
+.cart_element_flower {
+    display: grid;
+    grid-template-columns: 100px 485px 70px 120px 25px;
+    padding-bottom: 25px;
+}
+
+.cart_element {
+    display: grid;
+    grid-template-columns: 600px 176px 24px;
+    padding-bottom: 25px;
+}
+
+.cart_element_total {
+    display: grid;
+    grid-template-columns: 600px 176px 24px;
+    padding-bottom: 25px;
+    border-top: 3px dashed #B6B6B6;
+    border-radius: 1px;
+}
+
+.total_container {
+    margin: 0 auto;
+    display: block;
+    width: 800px;
+    margin-top: 25px;
+}
+
+.cart_text_white {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+}
+
+.cart_text_total {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: #000;
+    padding-top: 25px;
+}
+
+.cart_text {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: #000;
+    padding-top: 30px;
+}
+
+.price {
+    text-align: right;
+}
+
+.delete_link {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin-left: 10px;
+    margin-top: 32px;
+    border: none;
+    background-color: inherit;
+}
+
+.counter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    height: 20px;
+    border:  1px solid #b6b6b6;;
+    border-radius: 50px;
+}
+
+.counter_button {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: inherit;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 18px;
+    color: #b6b6b6;
+    margin-bottom: 2px;
+}
+
+.counter_button:hover {
+    color: #000;
+}
+
+
+.amount {
+    margin-top: 2px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    color: #000;
+}

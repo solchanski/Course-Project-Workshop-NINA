@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+{% block content %}
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style/style_auth.css' %}">
+        <title>Workshop NINA</title>
+    </head>
+    <body>
+        <section class="img_background">
+            <a href="{% url 'index' %}"><img class="nina" src="{% static 'img/nina_header_white.svg' %}"></a>
+            <form id="login" class="login_form" method="post">
+                <h1 class="login_h1">LOGIN</h1>
+                {% csrf_token %}
+                {% for field in form %}
+                <div>{{ field }}</div>
+                {% endfor %}
+                <button type="submit" class="login_buttons">Sign in</button>
+                <a class="create_account_link" href="{% url 'sign_up' %}">Create an account</a>
+            </form>
+            {{ form.errors }}
+        </section>
+    </body>
+</html>
+{% endblock %}
+{% block ScriptBlock %}
+<!--<script>-->
+<!--    $(function() {-->
+<!--        $('#login-user').submit(function(e) {-->
+<!--            e.preventDefault();-->
+<!--            var _this = $(this)-->
+<!--            $('.err-msg').remove();-->
+<!--            var el = $('<div>')-->
+<!--            el.addClass("alert alert-danger err-msg")-->
+<!--            el.hide()-->
+<!--            if (_this[0].checkValidity() == false) {-->
+<!--                _this[0].reportValidity();-->
+<!--                return false;-->
+<!--            }-->
+<!--            start_loader();-->
+<!--            $.ajax({-->
+<!--                headers: {-->
+<!--                    "X-CSRFToken": '{{csrf_token}}'-->
+<!--                },-->
+<!--                url: "{% url 'login' %}",-->
+<!--                data: new FormData($(this)[0]),-->
+<!--                cache: false,-->
+<!--                contentType: false,-->
+<!--                processData: false,-->
+<!--                method: 'POST',-->
+<!--                type: 'POST',-->
+<!--                dataType: 'json',-->
+<!--                error: err => {-->
+<!--                    console.log(err)-->
+<!--                    alert_toast("An error occured", 'error');-->
+<!--                    end_loader();-->
+<!--                },-->
+<!--                success: function(resp) {-->
+<!--                    if (typeof resp == 'object' && resp.status == 'success') {-->
+<!--                        el.removeClass("alert alert-danger err-msg")-->
+<!--                        location.href = "{% url 'index' %}"-->
+<!--                    } else if (resp.status == 'failed' && !!resp.msg) {-->
+<!--                        el.text(resp.msg)-->
+<!--                    } else {-->
+<!--                        el.text("An error occured", 'error');-->
+<!--                        end_loader();-->
+<!--                        console.err(resp)-->
+<!--                    }-->
+<!--                    _this.prepend(el)-->
+<!--                    el.show('slow')-->
+<!--                    $("html, body, .modal").scrollTop(0);-->
+<!--                    end_loader()-->
+<!--                }-->
+<!--            })-->
+<!--        })-->
+<!--    })-->
+<!--</script>-->
+<!--{% endblock ScriptBlock %}-->

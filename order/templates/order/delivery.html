@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+{% block content %}
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style/delivery.css' %}">
+        <title>Workshop NINA</title>
+    </head>
+	<body>
+        <header class="header">
+            <a href="{% url 'index' %}"><img class="nina" src="{% static 'img/nina_header_white.svg' %}"></a>
+        </header>
+        <main>
+            <section class="cart_container">
+                <div class="cart_text">DANCHENKO MARGARITA</div>
+                {% csrf_token %}
+                {% for field in form %}
+                <div>{{ field }}</div>
+                {% endfor %}
+<!--                <input class="input" type="text" name="address" id="address" value="" placeholder="Address">-->
+<!--                <div class="input_container">-->
+<!--                    <input class="input2" type="date" name="date" id="date" value="" placeholder="Date">-->
+<!--                    <input class="input2" type="text" name="time" id="time" list="time" value="" placeholder="Delivery Time">-->
+<!--                </div>-->
+                <div class="cart_element_total"> 
+                    <div class="cart_text">TOTAL PRICE:</div>
+                    <div class="cart_text">723 BYN</div>
+                </div>
+            </section>
+            <button type="submit" class="button_buy">Order</button>
+        </main>
+        <script>
+            
+        </script>
+    </body>
+</html>
+{% endblock %}

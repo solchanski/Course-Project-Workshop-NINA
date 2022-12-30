@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    padding-inline-start: 0;
+    margin: 0;
+    background: linear-gradient(180deg, #C4D334 0%, #B6B6B6 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+html{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+button, a{
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.nina {
+    width: 200px;
+}
+
+.logout{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+}
+
+.logout:hover {
+    text-decoration: underline;
+}
+
+.user_inf {
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    font-size: 24px;
+    color: white;
+    padding: 0;
+    text-align: right;
+    margin-top: -20px;
+    margin-right: 50px
+}
+
+.header_right {
+    display: flex;
+    gap: 20px;
+    width: 150px;
+}
+
+.cart_container {
+    margin: 0 auto;
+    display: block;
+    width: 500px;
+    background: #FFFFFF;
+    border-radius: 40px;
+    padding: 25px;
+    margin-top: 60px;
+}
+
+.button_cancel {
+    margin-left: auto;
+    text-align: right;
+    width: 80px;
+    text-decoration: none;
+    display: block;
+    background-color: inherit;
+    border: 2px solid #000;
+    border-radius: 80px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: #000;
+    padding: 15px 25px 15px 25px;
+    margin-top: -70px;
+}
+
+.button_cancel:hover {
+    border: 2px solid #C4D334;
+    background-color: #C4D334;
+    color: #fff;
+}
+
+.button_delete {
+    text-decoration: none;
+    display: block;
+    background-color: inherit;
+    border: 2px solid #fff;
+    border-radius: 80px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    padding: 15px 25px 15px 25px;
+    margin-top: -20px;
+}
+
+.button_delete:hover {
+    border: 2px solid #C4D334;
+    background-color: #C4D334;
+}
+
+.button_no_delete {
+    text-decoration: none;
+    display: block;
+    background-color: inherit;
+    border: 2px solid #fff;
+    border-radius: 80px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    padding: 15px 25px 15px 25px;
+    margin-top: -20px;
+}
+
+.button_no_delete:hover {
+    border: 2px solid #C4D334;
+    background-color: #C4D334;
+}
+
+.text_grey {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: #b6b6b6;
+}
+
+.text_black {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: #000;
+    padding-bottom: 20px;
+}
+
+.delete_link {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin-left: 10px;
+    margin-top: 32px;
+    border: none;
+    background-color: inherit;
+}
+
+.empty_profile{
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-align: center;
+    margin-top: 300px;
+}
+
+.flex_buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 220px;
+}
