@@ -80,15 +80,15 @@ button, a{
     font-family: 'Montserrat';
     font-weight: 700;
     font-size: 20px;
-    line-height: 24px;
     letter-spacing: 0.1em;
-    color: #FFFFFF;
-    width: 100px;
-    height: 50px;
     margin-top: 330px;
+    margin-bottom: 20px;
+    padding: 10px 25px;
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 .button:hover {
-    border: 1px solid #C4D334;
+    border: 2px solid #C4D334;
     background-color: #C4D334;
 }

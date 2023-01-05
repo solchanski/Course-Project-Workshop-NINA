@@ -11,7 +11,7 @@ from django.urls import reverse
 
 class CartView(LoginRequiredMixin, ListView):
     model = OrderedItem
-    template_name = "order/cart.html"
+    template_name = "cart/cart.html"
     success_url = "/order/delivery"
     login_url = '/login'
 
@@ -45,13 +45,3 @@ class DeleteOrderView(DeleteView):
     model = Order
     template_name = "order/order_delete.html"
     success_url = "/order/profile"
-
-
-    # def get_queryset(self):
-    #     queryset = super().get_queryset()
-    #
-    #     user = self.request.user
-    #     if user.is_authenticated:
-    #         queryset = queryset.filter(user=user)
-    #     return queryset
-

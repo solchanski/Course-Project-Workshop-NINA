@@ -21,15 +21,18 @@
             </div>
         </header>
         <main>
-            <form method="get" class="items">
+            <div class="items" >
             {% csrf_token %}
             {% for flower in flowers %}
                 <div class="item" style="background-image: url({{flower.image.url}})">
                     <p class="price">{{flower.price}} BYN</p>
-                    <button type="submit" class="button">Add</button>
+                    <form method="post" action="{% url 'get_item' flower.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="button">Add</button>
+                    </form>
                 </div>
             {% endfor %}
-            </form>
+            </div>
         </main>
     </body>
 </html>
