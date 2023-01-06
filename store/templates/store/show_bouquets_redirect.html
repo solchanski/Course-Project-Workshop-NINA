@@ -4,6 +4,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
+        <meta http-equiv="Refresh" content="0; url='{% url 'show_bouquets' %}'">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'style/items.css' %}">
         <title>Workshop NINA</title>
@@ -20,20 +21,6 @@
                 {% endif %}
             </div>
         </header>
-        <main>
-            <div class="items" >
-            {% csrf_token %}
-            {% for flower in flowers %}
-                <div class="item" style="background-image: url({{flower.image.url}})">
-                    <p class="price">{{flower.price}} BYN</p>
-                    <form method="post" action="{% url 'get_flower' flower.id %}">
-                        {% csrf_token %}
-                        <button type="submit" class="button">Add</button>
-                    </form>
-                </div>
-            {% endfor %}
-            </div>
-        </main>
     </body>
 </html>
 {% endblock %}

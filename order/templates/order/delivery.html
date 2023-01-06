@@ -13,23 +13,14 @@
             <a href="{% url 'index' %}"><img class="nina" src="{% static 'img/nina_header_white.svg' %}"></a>
         </header>
         <main>
-            <section class="cart_container">
-                <div class="cart_text">DANCHENKO MARGARITA</div>
+            <form method="post" class="cart_container">
+                <div class="cart_text">{{ user.first_name }} {{ user.last_name }}</div>
                 {% csrf_token %}
                 {% for field in form %}
-                <div>{{ field }}</div>
+                    <div>{{ field }}</div>
                 {% endfor %}
-<!--                <input class="input" type="text" name="address" id="address" value="" placeholder="Address">-->
-<!--                <div class="input_container">-->
-<!--                    <input class="input2" type="date" name="date" id="date" value="" placeholder="Date">-->
-<!--                    <input class="input2" type="text" name="time" id="time" list="time" value="" placeholder="Delivery Time">-->
-<!--                </div>-->
-                <div class="cart_element_total"> 
-                    <div class="cart_text">TOTAL PRICE:</div>
-                    <div class="cart_text">723 BYN</div>
-                </div>
-            </section>
-            <button type="submit" class="button_buy">Order</button>
+                <button type="submit" class="button_buy">Order</button>
+            </form>
         </main>
         <script>
             

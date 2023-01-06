@@ -1,9 +1,13 @@
+import datetime
 from django.views.generic.list import ListView
-from django.views.generic import FormView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
+from django.utils import timezone
 from store.models import *
 from order.models import *
+
+now = datetime.datetime.now()
 
 
 class CreateBouquetView(ListView):
@@ -16,16 +20,47 @@ class CreateBouquetView(ListView):
         context['flowers'] = flowers
         return context
 
-def get_item(request, item_id):
-        item = get_object_or_404(Item, id=item_id)
-        u = request.user
-        order = Order(request)
-        order.add(user_id=u)
-        ordered_items = OrderedItem(request)
-        ordered_items.add(order_id=order.id,
-                          item_id=item_id,
-                          amount=1)
-        return render(request, "store/create_bouquet.html")
+
+@login_required(login_url="/login/")
+@require_POST
+def get_flower(request, id):
+    item = get_object_or_404(Item, id=id)
+    u = request.user
+    orders = Order.objects.all()
+    ordered = Order.objects.filter(user_id=u.id, status=0)
+    # order = Order(user_id=u.id, address='Gagarina street, 55',
+    #               date=str(now.year) + '-' + str(now.month) + '-' + str(now.day),
+    #               delivery_time_id=1, status=0)
+    # order.save()
+    # if OrderedItem.item_id == id:
+    #     ordered_items = OrderedItem(order_id=order.id, item_id=id, amount=+1)
+    #     ordered_items.save()
+    # else:
+    #     ordered_items = OrderedItem(order_id=order.id, item_id=id, amount=1)
+    #     ordered_items.save()
+    order = Order(user_id=u.id, address='Gagarina street, 55',
+                  date=str(now.year) + '-' + str(now.month) + '-' + str(now.day),
+                  delivery_time_id=1, status=0)
+    order.save()
+    ordered_items = OrderedItem(order_id=order.id, item_id=id, amount=+1)
+    ordered_items.save()
+    return render(request, "store/create_bouquet_redirect.html", {"item": item})
+
+
+@login_required(login_url="/login/")
+@require_POST
+def get_bouquet(request, id):
+    item = get_object_or_404(Item, id=id)
+    u = request.user
+    orders = Order.objects.all()
+    ordered = Order.objects.filter(user_id=u.id, status=0)
+    order = Order(user_id=u.id, address='Gagarina street, 55',
+                  date=str(now.year) + '-' + str(now.month) + '-' + str(now.day),
+                  delivery_time_id=1, status=0)
+    order.save()
+    ordered_items = OrderedItem(order_id=order.id, item_id=id, amount=+1)
+    ordered_items.save()
+    return render(request, "store/show_bouquets_redirect.html", {"item": item})
 
 
 class ShowBouquetsView(ListView):

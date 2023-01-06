@@ -33,7 +33,7 @@ class LoginUser(LoginView):
         elif u.is_anonymous:
             return reverse('sing_up')
         else:
-            return reverse('profile')
+            return reverse('index')
 
 
 def index(request):

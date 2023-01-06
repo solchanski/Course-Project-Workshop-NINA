@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+{% block content %}
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Refresh" content="0; url='{% url 'cart' %}'">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style/cart.css' %}">
+        <title>Workshop NINA</title>
+    </head>
+	<body>
+        <header class="header">
+            <a href="{% url 'index' %}"><img class="nina" src="{% static 'img/nina_header_white.svg' %}"></a>
+        </header>
+    </body>
+</html>
+{% endblock %}

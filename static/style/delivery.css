@@ -35,8 +35,8 @@ button, a{
 .button_buy {
     margin: 0 auto;;
     display: block;
-    background-color: inherit;
-    border: 2px solid #FFFFFF;
+    background-color: #b6b6b6;
+    border: 2px solid #b6b6b6;
     border-radius: 80px;
     font-family: 'Montserrat';
     font-weight: 700;
@@ -45,7 +45,6 @@ button, a{
     color: #FFFFFF;
     width: 150px;
     height: 60px;
-    margin-bottom: 50px;
     margin-top: 20px;
 }
 
@@ -60,9 +59,7 @@ button, a{
     width: 500px;
     background: #FFFFFF;
     border-radius: 40px;
-    padding-top: 25px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 25px;
     margin-top: 60px;
 }
 

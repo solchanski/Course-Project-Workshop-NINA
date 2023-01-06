@@ -44,9 +44,12 @@ button, a{
     letter-spacing: 0.1em;
     color: #FFFFFF;
     width: 150px;
-    height: 60px;
     margin-bottom: 50px;
     margin-top: -10px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .button_buy:hover {

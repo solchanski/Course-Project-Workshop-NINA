@@ -23,15 +23,18 @@
             </div>
         </header>
         <main>
-            <form method="get" class="items">
+            <div class="items">
             {% csrf_token %}
             {% for bouquet in bouquets %}
                 <div class="item" style="background-image: url({{bouquet.image.url}})">
                     <p class="price">{{bouquet.price}} BYN</p>
-                    <button class="button">Buy</button>
+                    <form method="post" action="{% url 'get_bouquet' bouquet.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="button">Add</button>
+                    </form>
                 </div>
             {% endfor %}
-            </form>
+            </div>
         </main>
     </body>
 </html>
