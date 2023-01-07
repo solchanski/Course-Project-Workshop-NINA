@@ -69,6 +69,18 @@ button, a{
     margin-top: 20px;
 }
 
+.cart_container_flower {
+    margin: 0 auto;;
+    display: block;
+    width: 800px;
+    background: #FFFFFF;
+    border-radius: 40px;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right:25px;
+    margin-top: 20px;
+}
+
 .cart_element_flower {
     display: grid;
     grid-template-columns: 100px 485px 70px 120px 25px;
@@ -137,8 +149,7 @@ button, a{
 }
 
 .counter {
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
     margin-top: 30px;
     padding-bottom: 3px;
     padding-left: 3px;
@@ -172,4 +183,14 @@ button, a{
     font-size: 16px;
     letter-spacing: 0.1em;
     color: #000;
+}
+
+.empty {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-align: center;
+    margin-top: 250px;
 }

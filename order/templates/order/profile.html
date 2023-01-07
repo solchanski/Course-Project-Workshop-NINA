@@ -19,15 +19,19 @@
         <p class="user_inf">{{ user.first_name }} {{ user.last_name }}</p>
         {% if orders %}
             {% for order in orders %}
+            {% if order.status == 0 %}
                 <section class="cart_container">
                     <div class="text_grey">ESTIMATED DELIVERY:</div>
                     <div class="text_black">{{order.date}} at {{order.delivery_time}}</div>
                     <div class="text_grey">ADDRESS:</div>
                     <div class="text_black">{{order.address}}</div>
                     <div class="text_grey">TO PAY:</div>
-                    <div class="text_black">{{order.total}}</div>
+                    <div class="text_black">{{total_price}} BYN</div>
                     <div><a href="{% url 'delete_order' order.pk %}" class="button_cancel" >Cancel</a></div>
                 </section>
+            {% else %}
+                <div class="empty_profile">NO ESTIMATED DELIVERIES</div>
+            {% endif %}
             {% endfor %}
         {% else %}
             <div class="empty_profile">NO ESTIMATED DELIVERIES</div>

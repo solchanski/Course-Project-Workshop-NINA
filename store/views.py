@@ -26,24 +26,18 @@ class CreateBouquetView(ListView):
 def get_flower(request, id):
     item = get_object_or_404(Item, id=id)
     u = request.user
-    orders = Order.objects.all()
-    ordered = Order.objects.filter(user_id=u.id, status=0)
-    # order = Order(user_id=u.id, address='Gagarina street, 55',
-    #               date=str(now.year) + '-' + str(now.month) + '-' + str(now.day),
-    #               delivery_time_id=1, status=0)
-    # order.save()
-    # if OrderedItem.item_id == id:
-    #     ordered_items = OrderedItem(order_id=order.id, item_id=id, amount=+1)
-    #     ordered_items.save()
-    # else:
-    #     ordered_items = OrderedItem(order_id=order.id, item_id=id, amount=1)
-    #     ordered_items.save()
-    order = Order(user_id=u.id, address='Gagarina street, 55',
-                  date=str(now.year) + '-' + str(now.month) + '-' + str(now.day),
-                  delivery_time_id=1, status=0)
-    order.save()
-    ordered_items = OrderedItem(order_id=order.id, item_id=id, amount=+1)
-    ordered_items.save()
+    order_existed = Order.objects.filter(user_id=u.id, status=0).exists()
+    if order_existed:
+        order = Order.objects.filter(user_id=u.id, status=0).get()
+        ordered_items = OrderedItem(order_id=order.id, item_id=id, amount=1)
+        ordered_items.save()
+    else:
+        order = Order(user_id=u.id, address='Gagarina street, 55',
+                      date=str(now.year) + '-' + str(now.month) + '-' + str(now.day),
+                      delivery_time_id=1, status=0)
+        order.save()
+        ordered_items = OrderedItem(order_id=order.id, item_id=id, amount=1)
+        ordered_items.save()
     return render(request, "store/create_bouquet_redirect.html", {"item": item})
 
 
@@ -52,14 +46,18 @@ def get_flower(request, id):
 def get_bouquet(request, id):
     item = get_object_or_404(Item, id=id)
     u = request.user
-    orders = Order.objects.all()
-    ordered = Order.objects.filter(user_id=u.id, status=0)
-    order = Order(user_id=u.id, address='Gagarina street, 55',
-                  date=str(now.year) + '-' + str(now.month) + '-' + str(now.day),
-                  delivery_time_id=1, status=0)
-    order.save()
-    ordered_items = OrderedItem(order_id=order.id, item_id=id, amount=+1)
-    ordered_items.save()
+    order_existed = Order.objects.filter(user_id=u.id, status=0).exists()
+    if order_existed:
+        order = Order.objects.filter(user_id=u.id, status=0).get()
+        ordered_items = OrderedItem(order_id=order.id, item_id=id, amount=1)
+        ordered_items.save()
+    else:
+        order = Order(user_id=u.id, address='Gagarina street, 55',
+                      date=str(now.year) + '-' + str(now.month) + '-' + str(now.day),
+                      delivery_time_id=1, status=0)
+        order.save()
+        ordered_items = OrderedItem(order_id=order.id, item_id=id, amount=1)
+        ordered_items.save()
     return render(request, "store/show_bouquets_redirect.html", {"item": item})
 
 

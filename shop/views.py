@@ -1,5 +1,5 @@
 import datetime
-
+from django.views.decorators.http import require_POST
 from django.views.generic import DetailView, FormView, DeleteView, CreateView
 from django.urls import reverse
 from django.contrib.auth.views import LoginView
@@ -8,6 +8,8 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.hashers import make_password
+
+now = datetime.datetime.now()
 
 
 class CreateAccountView(FormView):

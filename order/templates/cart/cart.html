@@ -11,55 +11,60 @@
 	<body>
         <header class="header">
             <a href="{% url 'index' %}"><img class="nina" src="{% static 'img/nina_header_white.svg' %}"></a>
+            <div><a href="{% url 'profile' %}"><img src="{% static 'img/profile_white.svg' %}" width="30" height="30"></a></div>
         </header>
         <main>
             {% for ordered in items %}
             {% if ordered.order.user == user and ordered.item.type_id == 1 and ordered.order.status == 0 %}
-            <section class="cart_container">
-                <div class="cart_element_flower">
-                    <img src="{{ordered.item.image.url}}" width="80">
-                    <div class="cart_text">{{ordered.item.name}}</div>
-                    <div class="counter">
-                        <button class="counter_button">-</button>
-                        <pre class="amount">{{ordered.amount}}</pre>
-                        <button class="counter_button">+</button>
+                <section class="cart_container">
+                    <div class="cart_element_flower">
+                        <img src="{{ordered.item.image.url}}" width="80">
+                        <div class="cart_text">{{ordered.item.type}}: {{ordered.item.name}}</div>
+                        <div class="counter">
+<!--                            <button class="counter_button">-</button>-->
+                            <pre class="amount">{{ordered.amount}}</pre>
+<!--                            <button class="counter_button">+</button>-->
+                        </div>
+                        <div class="cart_text price">{{ordered.item.price}} BYN</div>
+                        <form method="post" action="{% url 'cart_remove' ordered.id %}">
+                            {% csrf_token %}
+                            <button class="delete_link"><img src="{% static 'img/delete.svg' %}" width="20" height="20"></button>
+                        </form>
                     </div>
-                    <div class="cart_text price">{{ordered.item.price}} BYN</div>
-                    <form method="post" action="{% url 'cart_remove' ordered.id %}">
-                        {% csrf_token %}
-                        <button class="delete_link"><img src="{% static 'img/delete.svg' %}" width="20" height="20"></button>
-                    </form>
-                </div>
-            </section>
+                </section>
             {% endif %}
             {% endfor %}
-            <section class="cart_container">
-                {% for ordered in items %}
-                {% if ordered.order.user == user and ordered.item.type_id == 2 and ordered.order.status == 0 %}
-                <div class="cart_element_flower">
-                    <img src="{{ordered.item.image.url}}" width="80">
-                    <div class="cart_text">{{ordered.item.name}}</div>
-                    <div class="counter">
-                        <button class="counter_button">-</button>
-                        <pre class="amount">{{ordered.amount}}</pre>
-                        <button class="counter_button">+</button>
+
+            {% for ordered in items %}
+            {% if ordered.order.user == user and ordered.item.type_id == 2 and ordered.order.status == 0 %}
+                <section class="cart_container_flower">
+                    <div class="cart_element_flower">
+                        <img src="{{ordered.item.image.url}}" width="80">
+                        <div class="cart_text">{{ordered.item.type}}: {{ordered.item.name}}</div>
+                        <div class="counter">
+<!--                            <button class="counter_button">-</button>-->
+                            <pre class="amount">{{ordered.amount}}</pre>
+<!--                            <button class="counter_button">+</button>-->
+                        </div>
+                        <div class="cart_text price">{{ordered.item.price}} BYN</div>
+                        <form method="post" action="{% url 'cart_remove' ordered.id %}">
+                            {% csrf_token %}
+                            <button class="delete_link"><img src="{% static 'img/delete.svg' %}" width="20" height="20"></button>
+                        </form>
                     </div>
-                    <div class="cart_text price">{{orderedItem.get_total_cost}} BYN</div>
-                    <form method="post" action="{% url 'cart_remove' ordered.id %}">
-                        {% csrf_token %}
-                        <button class="delete_link"><img src="{% static 'img/delete.svg' %}" width="20" height="20"></button>
-                    </form>
+                </section>
+            {% endif %}
+            {% endfor %}
+
+            {% if ordered %}
+                <div class="total_container">
+                    <div class="cart_element">
+                        <div class="cart_text_white">TOTAL PRICE:</div>
+                        <div class="cart_text_white price">{{total_price}} BYN</div>
+                    </div>
                 </div>
-                {% endif %}
-                {% endfor %}
-            </section>
-            <div class="total_container">
-                <div class="cart_element">
-                    <div class="cart_text_white">TOTAL PRICE:</div>
-                    <div class="cart_text_white price">BYN</div>
-                </div>
-            </div>
-            <a href="{% url 'delivery' %}"class="button_buy">Buy</a>
+                <a href="{% url 'delivery' %}" class="button_buy">Buy</a>
+            {% endif %}
         </main>
         <script>
             
