@@ -63,7 +63,10 @@
                         <div class="cart_text_white price">{{total_price}} BYN</div>
                     </div>
                 </div>
-                <a href="{% url 'delivery' %}" class="button_buy">Buy</a>
+                <form method="post" action="{% url 'delivery'  order.pk %}">
+                    {% csrf_token %}
+                    <button type="submit"  class="button_buy">Buy</button>
+                </form>
             {% endif %}
         </main>
         <script>

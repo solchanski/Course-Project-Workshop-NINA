@@ -19,7 +19,7 @@
         <p class="user_inf">{{ user.first_name }} {{ user.last_name }}</p>
         {% if orders %}
             {% for order in orders %}
-            {% if order.status == 0 %}
+            {% if order.status == 1 %}
                 <section class="cart_container">
                     <div class="text_grey">ESTIMATED DELIVERY:</div>
                     <div class="text_black">{{order.date}} at {{order.delivery_time}}</div>

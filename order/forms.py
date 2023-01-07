@@ -1,10 +1,11 @@
 from django import forms
+from django.forms import HiddenInput
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from order.models import *
 
 
-class DeliveryForm(forms.Form):
+class DeliveryForm(forms.ModelForm):
     address = forms.CharField(widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Address'}))
     date = forms.DateField(widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Date',
                                                          'type': 'date', 'min': '2023-01-01'}))
