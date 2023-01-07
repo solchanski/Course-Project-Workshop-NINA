@@ -61,16 +61,16 @@ class ProfileView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         u = self.request.user
-        order = Order.objects.filter(user_id=u.id, status=1)
-        for o in order:
-            if OrderedItem.objects.filter(order=o).exists():
-                item = OrderedItem.objects.filter(order=o).values_list('item', flat=True)
-                total = []
-                for i in item:
-                    price = Item.objects.filter(id=i).values_list('price', flat=True)
-                    total.append(price[0])
-                total_price = sum(total)
-                context['total_price'] = total_price
+        # order = Order.objects.filter(user_id=u.id, status=1)
+        # for o in order:
+        #     if OrderedItem.objects.filter(order=o).exists():
+        #         item = OrderedItem.objects.filter(order=o).values_list('item', flat=True)
+        #         total = []
+        #         for i in item:
+        #             price = Item.objects.filter(id=i).values_list('price', flat=True)
+        #             total.append(price[0])
+        # total_price = sum(total)
+        # context['total_price'] = total_price
         orders = Order.objects.filter(user=u, status=1)
         context['orders'] = orders
         return context
